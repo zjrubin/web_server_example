@@ -1,6 +1,8 @@
 #pragma once
 
-#define MAX_MESSAGE_SIZE 256
+#include <string>
+
+#define MAX_MESSAGE_SIZE 2000
 
 struct sockaddr_in;
 
@@ -42,6 +44,8 @@ int get_port_number(int sockfd);
 
 // a simple class for error exceptions - msg points to a C-string error message
 struct Error {
-  Error(const char *msg_ = "") : msg{msg_} {}
-  const char *const msg;
+  Error(const std::string &msg_) : msg{msg_} {}
+  Error(const std::string &&msg_) : msg{msg_} {}
+
+  std::string msg;
 };

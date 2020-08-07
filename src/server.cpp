@@ -38,7 +38,7 @@ int main(int argc, const char** argv) {
     int port = atoi(argv[1]);
     run_server(port, 10);
   } catch (const Error& e) {
-    perror(e.msg);
+    perror(e.msg.c_str());
     return 1;
   } catch (...) {
     perror("Unknown exception caught! Exiting...");
@@ -138,7 +138,7 @@ void handle_connection(int thread_id) {
     }
 
     // (2) Print out the message
-    printf("Client %d says '%s'\n", connectionfd, msg);
+    printf("Client %d:\n\t%s\n", connectionfd, msg);
 
     // (3) Send response code to client
     uint16_t response = htons(42);
