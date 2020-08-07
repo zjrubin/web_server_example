@@ -1,0 +1,16 @@
+{
+    "editor.formatOnSave": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "cSpell.words": [
+        "af",
+        "af inet",
+        "connectionfd",
+        "inet",
+        "struct"
+    ],
+    "files.associations": {
+        "*.centos": "dockerfile",
+        "*.rhel": "dockerfile",
+        "condition_variable": "cpp"
+    }
+}
