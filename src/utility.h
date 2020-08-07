@@ -1,5 +1,4 @@
-#ifndef UTILITY_H
-#define UTILITY_H
+#pragma once
 
 #define MAX_MESSAGE_SIZE 256
 
@@ -16,7 +15,7 @@ struct sockaddr_in;
  *		struct sockaddr_in server;
  *		int err = make_server_sockaddr(&server, 8888);
  */
-int make_server_sockaddr(struct sockaddr_in* addr, int port);
+int make_server_sockaddr(struct sockaddr_in *addr, int port);
 
 /**
  * Make a client sockaddr given a remote hostname and port.
@@ -30,7 +29,7 @@ int make_server_sockaddr(struct sockaddr_in* addr, int port);
  *		struct sockaddr_in client;
  *		int err = make_client_sockaddr(&client, "141.88.27.42", 8888);
  */
-int make_client_sockaddr(struct sockaddr_in* addr, const char* hostname, int port);
+int make_client_sockaddr(struct sockaddr_in *addr, const char *hostname, int port);
 
 /**
  * Return the port number assigned to a socket.
@@ -41,14 +40,12 @@ int make_client_sockaddr(struct sockaddr_in* addr, const char* hostname, int por
  * Returns:
  *		The port number of the socket, or -1 on failure.
  */
- int get_port_number(int sockfd);
+int get_port_number(int sockfd);
 
- // a simple class for error exceptions - msg points to a C-string error message
+// a simple class for error exceptions - msg points to a C-string error message
 struct Error
 {
-	Error(const char* msg_ = "")
-        : msg{msg_} {}
-	const char* const msg;
+	Error(const char *msg_ = "")
+		: msg{msg_} {}
+	const char *const msg;
 };
-
-#endif

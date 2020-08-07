@@ -17,6 +17,9 @@ add_executable(server
     src/server.cpp
     src/utility.cpp)
 
+find_package(Threads REQUIRED)
+target_link_libraries(server  ${CMAKE_THREAD_LIBS_INIT})
+
 # target_link_libraries(hello_world PRIVATE say_hello)
 
 # install(TARGETS "${PROJECT_NAME}" DESTINATION bin)    # ${CMAKE_INSTALL_PREFIX}/bin
